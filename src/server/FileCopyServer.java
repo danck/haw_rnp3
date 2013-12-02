@@ -16,7 +16,7 @@ import lib.FCpacket;
 
 public class FileCopyServer {
 	// -------- Constants
-	public final static boolean TEST_OUTPUT_MODE = false;
+	public final static boolean TEST_OUTPUT_MODE = true;
 	public final static int SERVER_PORT = 23000;
 	public final static int UDP_PACKET_SIZE = 1008;
 	public final static int CONNECTION_TIMEOUT = 3000; // milliseconds
@@ -107,6 +107,7 @@ public class FileCopyServer {
 							if (setParameters(fcReceivePacket)) {
 								// open destination file
 								outToFile = new FileOutputStream(destPath);
+								testOut("Destination Path: " + destPath);
 							} else {
 								// Wrong parameter packet --> End!
 								break;
